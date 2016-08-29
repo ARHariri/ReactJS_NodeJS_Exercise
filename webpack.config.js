@@ -10,6 +10,10 @@ var config = {
       inline: true,
       port: 8000
    },
+
+   resolve: {
+      extensions: ['', '.js', '.jsx', '.json']
+   },
 	
    module: {
       loaders: [
@@ -24,6 +28,6 @@ var config = {
          }
       ]
    }
-}
+};
 
 module.exports = config;
