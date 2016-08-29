@@ -2,10 +2,13 @@ var webpack = require('webpack');
 var path = require('path');
 
 var config = {
-   entry: [
-      'webpack-dev-server/client?http://localhost:8000',
-      './main.js'
-   ],
+   entry: {
+      app: [
+         'webpack-dev-server/client?http://localhost:8005',
+         'webpack/hot/only-dev-server',
+         './main.js'
+      ]
+   },
 	
    output: {
       path: path.join(__dirname, './dist'), // This path should be absolute
@@ -16,13 +19,13 @@ var config = {
    devtool: "eval",
 
 	plugins: [
-    new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin()
    ],
 
    devServer: {
       inline: true,
       hot: true,
-      port: 8000
+      port: 8005
    },
 
    resolve: {
@@ -32,12 +35,9 @@ var config = {
    module: {
       loaders: [
          {
-            loader: 'babel',
+            loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react'],
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            query: {
-               presets: ['es2015', 'react']
-            }
          }
       ]
    }
