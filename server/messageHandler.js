@@ -4,8 +4,9 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 io.on('connection',function(client){
-	client.emit('welcome', {d: 'hello'});
-	console.log();
+	client.on('message', function (mes) {
+    console.log(mes);
+  });
 	//clinet.on('message', function(data){
 		//client.broadcast.emit('message',data);
 		//console.log(data);

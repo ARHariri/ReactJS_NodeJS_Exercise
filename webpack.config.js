@@ -16,17 +16,11 @@ var config = {
       publicPath: '/dist/'       // Where we want webpack to serve other static assets from like images css etc
    },
 
-   devtool: "eval",
+   devtool: "source-map",
 
 	plugins: [
       new webpack.HotModuleReplacementPlugin()
    ],
-
-   devServer: {
-      inline: true,
-      hot: true,
-      port: 8005
-   },
 
    resolve: {
       extensions: ['', '.js', '.jsx']
@@ -37,7 +31,11 @@ var config = {
          {
             loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react'],
             test: /\.jsx?$/,
-            exclude: /node_modules/,
+            exclude: /node_modules|server/,
+         },
+         {
+            test: /.css$/,
+            loader: "style!css?module&sourceMap&localIdentName=[path]_[name]_[local]_[hash:base64:3]"
          }
       ]
    }
