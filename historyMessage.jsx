@@ -1,6 +1,6 @@
 import React from 'react';
 
-class historyMessage extends React.Component {
+export default class historyMessage extends React.Component {
 	render(){
 		return(
 			<div>
@@ -10,5 +10,3 @@ class historyMessage extends React.Component {
 		);
 	}
 }
-
-export default historyMessage;

@@ -22,7 +22,6 @@ class messageField extends React.Component{
 		})
 	}
 
-
 	sendMessage(){
 		socket.emit('message',data);
 	}

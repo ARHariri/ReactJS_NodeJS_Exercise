@@ -1,8 +1,8 @@
 import React from 'react';
-import HistoryMessage from	'./historyMessage.jsx';
-import MessageField from './messageField.jsx';
+import HistoryMessage from	'./historyMessage';
+import MessageField from './messageField';
 
-class App extends React.Component {
+export default class App extends React.Component {
     render() {
       return (
          <div>
@@ -12,5 +12,3 @@ class App extends React.Component {
       );
    }
 }
-
-export default App;
